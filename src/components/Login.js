@@ -9,7 +9,7 @@ const Login = (props) => {
         </a>
         <div>
           <Join>Join now</Join>
-          <SignIn>Sign in</SignIn>
+          <SignIn href="/loginuser">Sign in</SignIn>
         </div>
       </Nav>
       <Section>
