@@ -2,6 +2,7 @@
 import Axios from "axios";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from "styled-components";
 
 
 
@@ -34,10 +35,7 @@ function PostForm(props) {
                console.log(error.response.headers);
            }
        })
-       
-       
-
-    
+        
    }
    function handle(e){
        const newdata = {...data}
@@ -45,20 +43,89 @@ function PostForm(props) {
        setData(newdata)
        console.log(newdata)
 
-
    }
    
    return(
-       <div>
-           <form  onSubmit={(e)=>submit(e)}>
-               <input onChange={(e)=> handle(e)} id="email" value={data.email} placeholder="name" type="text"></input>
-               <input onChange={(e)=> handle(e)} id="password" value={data.password} placeholder="name" type="text"></input>
-               <button>submit</button>
-           </form>
-           
-       </div>
+    <Container>
+       <div className="my-login-page">
+       <Nav>
+        <a href="/">
+          <img src="/images/login-logo.svg" alt="" />
+        </a>
+        
+      </Nav>
+        <section class="h-100">
+            <div class="container h-100">
+                <div class="row justify-content-md-center h-100">
+                    <div className="card-wrapper">
+                        {/* <div className="brand">
+                            <img src="/images/login-logo.svg" alt="logo"/>
+                        </div> */}
+                        <div className="card fat">
+                            <div className="card-body">
+                                <h4 className="card-title">Oturum Aç</h4>
+                                <p className="card-title">Profesyonel dünyanızla ilgili güncel haberlere sahip olun</p>
+                                <form  onSubmit={(e)=>submit(e)} className="my-login-validation" novalidate="">
+                                        <div className="form-group">
+                                            {/* <label htmlFor="email">E-posta Adresi</label> */}
+                                            <input onChange={(e)=> handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required autofocus/>
+                                            <div className="invalid-feedback">
+                                                E-posta Zorunludur!!
+                                            </div>
+                                        </div>
+                                        <div className="form-group">
+                                            {/* <label htmlFor="password">Şifre */}
+                                                <a href="forgot.html" className="float-right">
+                                                    Şifreni mi Unuttun?
+                                                </a>
+                                            {/* </label> */}
+                                            <input onChange={(e)=> handle(e)}  placeholder="Şifre" id="password" type="password" className="form-control" name="password" value={data.password} required data-eye />
+                                            <div className="invalid-feedback">
+                                                Şifre Zorunludur!!
+                                            </div>
+                                        </div>
+                                        <div className="form-group m-0">
+                                            <button type="submit" className="btn btn-primary btn-block">
+                                                Oturum Aç
+                                            </button>
+                                        </div>
+                                        <div className="mt-4 text-center">
+                                            Workup 'ta Yeni misiniz? <a href="register.html">Hemen Katılın!</a>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="footer">
+						Copyright &copy; 2022 &mdash; Workup
+					</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </Container>
    )
 }
 
- 
+const Container = styled.div`
+  padding: 0px;
+`;
+const Nav = styled.nav`
+max-width: 1128px;
+margin: auto;
+padding: 12px 0 16px;
+display: flex;
+align-items: center;
+position: relative;
+justify-content: space-between;
+flex-wrap: nowrap;
+
+& > a {
+  width: 135px;
+  height: 34px;
+  @media (max-width: 768px) {
+    padding: 0 5px;
+  }
+}
+`;
 export default PostForm;
