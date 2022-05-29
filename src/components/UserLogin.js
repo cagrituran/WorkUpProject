@@ -106,7 +106,7 @@ function PostForm(props) {
     </Container>
    )
 }
-//hadi ya
+
 const Container = styled.div`
   padding: 0px;
 `;
