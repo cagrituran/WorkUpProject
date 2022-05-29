@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from "styled-components";
 
 const Header = (props) => {
@@ -57,7 +58,7 @@ const Header = (props) => {
             <User>
               <a>
                 <img src="/images/user.svg" alt="" />
-                <span>Me</span>
+                <span>me</span>
                 <img src="/images/down-icon.svg" alt="" />
               </a>
 
