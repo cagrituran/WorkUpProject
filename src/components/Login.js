@@ -8,7 +8,7 @@ const Login = (props) => {
           <img src="/images/login-logo.svg" alt="" />
         </a>
         <div>
-          <Join>Join now</Join>
+          <Join href="/registeruser">Join now</Join>
           <SignIn href="/loginuser">Sign in</SignIn>
         </div>
       </Nav>
