@@ -48,9 +48,9 @@ function PostForm(props) {
         </a>
         
       </Nav>
-        <section class="h-100">
-            <div class="container h-100">
-                <div class="row justify-content-md-center h-100">
+        <section className="h-100">
+            <div className="container h-100">
+                <div className="row justify-content-md-center h-100">
                     <div className="card-wrapper">
                         {/* <div className="brand">
                             <img src="/images/login-logo.svg" alt="logo"/>
@@ -59,10 +59,10 @@ function PostForm(props) {
                             <div className="card-body">
                                 <h4 className="card-title">Oturum Aç</h4>
                                 <p className="card-title">Profesyonel dünyanızla ilgili güncel haberlere sahip olun</p>
-                                <form  onSubmit={(e)=>submit(e)} className="my-login-validation" novalidate="">
+                                <form  onSubmit={(e)=>submit(e)} className="my-login-validation" noValidate="">
                                         <div className="form-group">
                                             {/* <label htmlFor="email">E-posta Adresi</label> */}
-                                            <input onChange={(e)=> handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required autofocus/>
+                                            <input onChange={(e)=> handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required autoFocus/>
                                             <div className="invalid-feedback">
                                                 E-posta Zorunludur!!
                                             </div>
