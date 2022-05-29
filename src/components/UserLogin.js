@@ -1,28 +1,41 @@
 // import { setUserSession } from './Utils/Common';
 import Axios from "axios";
-import { createBrowserHistory } from "history";
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const history=createBrowserHistory();
+
+
+
+
 
 
  
 function PostForm(props) {
+    const navigate = useNavigate();
+    
    const url = "https://localhost:7079/api/User/login"
    const[data ,setData] = useState({
        email:"",
        password:""
    })
    function submit(e){
-       e.preventDefault();
+        e.preventDefault();
        Axios.post(url,{
            email:data.email,
            password:data.password
        }).then(res=>{
-           console.log(res.data)
-           
-           
+           console.log(res.data)    
+           navigate('/home'); 
+                                            
+       }).catch(function(error){
+           if(error.response){
+               console.log(error.response.data);
+               console.log(error.response.status);
+               console.log(error.response.headers);
+           }
        })
+       
+       
 
     
    }
@@ -34,18 +47,18 @@ function PostForm(props) {
 
 
    }
-   const handleLogout = () => {    
-    
-  }
+   
    return(
        <div>
-           <form onSubmit={(e)=>submit(e)}>
+           <form  onSubmit={(e)=>submit(e)}>
                <input onChange={(e)=> handle(e)} id="email" value={data.email} placeholder="name" type="text"></input>
                <input onChange={(e)=> handle(e)} id="password" value={data.password} placeholder="name" type="text"></input>
-               <button onClick={handleLogout} >submit</button>
+               <button>submit</button>
            </form>
+           
        </div>
    )
 }
+
  
 export default PostForm;
