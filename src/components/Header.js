@@ -23,47 +23,47 @@ const Header = (props) => {
             <NavList className="active">
               <a>
                 <img src="/images/nav-home.svg" alt="" />
-                <span>Home</span>
+                <span>Anasayfa</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
                 <img src="/images/nav-network.svg" alt="" />
-                <span>My Network</span>
+                <span>Ağım</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
                 <img src="/images/nav-jobs.svg" alt="" />
-                <span>Jobs</span>
+                <span>İş İlanları</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
                 <img src="/images/nav-messaging.svg" alt="" />
-                <span>Messaging</span>
+                <span>Mesajlaşma</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
                 <img src="/images/nav-notifications.svg" alt="" />
-                <span>Notifications</span>
+                <span>Bildirimler</span>
               </a>
             </NavList>
 
             <User>
               <a>
                 <img src="/images/user.svg" alt="" />
-                <span>me</span>
+                <span>Ben</span>
                 <img src="/images/down-icon.svg" alt="" />
               </a>
 
               <SignOut>
-                <a>Sign Out</a>
+                <a>Çıkış</a>
               </SignOut>
             </User>
 
@@ -71,7 +71,7 @@ const Header = (props) => {
               <a>
                 <img src="/images/nav-work.svg" alt="" />
                 <span>
-                  Work
+                  İş
                   <img src="/images/down-icon.svg" alt="" />
                 </span>
               </a>
@@ -85,13 +85,12 @@ const Header = (props) => {
 
 const Container = styled.div`
   background-color: white;
-   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   left: 0;
   padding: 0 24px;
   position: fixed;
   top: 0;
   width: 100vw;
-
   z-index: 100;
 `;
 

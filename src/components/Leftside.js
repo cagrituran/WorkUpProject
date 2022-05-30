@@ -59,7 +59,7 @@ const Container = styled.div`
 const ArtCard = styled.div`
   text-align: center;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin:8px 20px;
   background-color: #fff;
   border-radius: 5px;
   transition: box-shadow 83ms;

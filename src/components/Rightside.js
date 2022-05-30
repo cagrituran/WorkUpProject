@@ -52,7 +52,7 @@ const Container = styled.div`
 const FollowCard = styled.div`
   text-align: center;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin: 8px 20px;
   background-color: #fff;
   border-radius: 5px;
   position: relative;

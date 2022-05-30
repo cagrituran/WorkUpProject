@@ -8,19 +8,19 @@ const Login = (props) => {
           <img src="/images/login-logo.svg" alt="" />
         </a>
         <div>
-          <Join href="/registeruser">Join now</Join>
-          <SignIn href="/loginuser">Sign in</SignIn>
+          <Join href="/registeruser">Hemen Katıl</Join>
+          <SignIn href="/loginuser">Oturum Aç</SignIn>
         </div>
       </Nav>
       <Section>
         <Hero>
-          <h1>Welcome to your professional community</h1>
+          <h1>Profesyonel Topluluğunuza Hoşgeldiniz!</h1>
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
           <Google>
             <img src="/images/google.svg" alt="" />
-            Sign in with Google
+            Google ile Kaydol
           </Google>
         </Form>
       </Section>
