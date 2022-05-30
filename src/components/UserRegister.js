@@ -149,14 +149,14 @@ function UserRegister() {
                                         <p className="card-title">Workup Dünyasına Hoşgeldin</p>
                                         <form onSubmit={(e) => submit(e)} className="my-login-validation" noValidate="">
                                             <div className="form-group">
-                                                {/* <label htmlFor="email">E-posta Adresi</label> */}
+                                                <label className="text-left" htmlFor="name">İsim</label>
                                                 <input onChange={(e) => handle(e)} id="name" placeholder="İsim" type="name" className="form-control" name="name" value={data.name} required autoFocus />
                                                 <div className="invalid-feedback">
                                                     İsim Girmek Zorunludur!
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                {/* <label htmlFor="email">E-posta Adresi</label> */}
+                                                <label className="text-left" htmlFor="lastname">Soyisim</label>
                                                 <input onChange={(e) => handle(e)} id="lastname" placeholder="Soyisim" type="lastname" className="form-control" name="lastname" value={data.lastname} required autoFocus />
                                                 <div className="invalid-feedback">
                                                     Soyisim Girmek Zorunludur!
@@ -164,7 +164,7 @@ function UserRegister() {
                                             </div>
 
                                             <div className="form-group">
-                                                {/* <label htmlFor="email">E-posta Adresi</label> */}
+                                                <label className="text-left" htmlFor="email">Email</label>
                                                 <input onChange={(e) => handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required autoFocus />
                                                 <div className="invalid-feedback">
                                                     E-posta Zorunludur!!
@@ -174,6 +174,7 @@ function UserRegister() {
                                                 {/* <label htmlFor="password">Şifre */}
                                                 
                                                 {/* </label> */}
+                                                <label className="text-left" htmlFor="password">Şifre</label>
                                                 <input onChange={(e) => handle(e)} placeholder="Şifre" id="password" type="password" className="form-control" name="password" value={data.password} required data-eye />
                                                 <div className="invalid-feedback">
                                                     Şifre Zorunludur!!
@@ -183,6 +184,7 @@ function UserRegister() {
                                                 {/* <label htmlFor="password">Şifre */}
                                                 
                                                 {/* </label> */}
+                                                <label className="text-left" htmlFor="newpassword">Tekrar Şifre</label>
                                                 <input onChange={(e) => handle(e)} placeholder="Tekrar Şifre" id="newpassword" type="newpassword" className="form-control" name="newpassword" value={data.newpassword} required data-eye />
                                                 <div className="invalid-feedback">
                                                    Tekrar Şifre Zorunludur!!
