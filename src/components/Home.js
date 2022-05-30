@@ -36,7 +36,7 @@ const Container = styled.div`
 // `;
 
 const Section = styled.section`
-  min-height: 50px;
+  min-height: 10px;
   padding: 16px 0;
   box-sizing: content-box;
   text-align: center;
@@ -67,7 +67,7 @@ const Layout = styled.div`
   display: grid;
   grid-template-areas: "leftside main rightside";
   grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
-  column-gap: 25px;
+  column-gap: 10px;
   row-gap: 25px;
   /* grid-template-row: auto; */
   margin: 25px 0;
