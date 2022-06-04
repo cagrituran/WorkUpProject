@@ -93,7 +93,7 @@ const Main = (props) => {
         <div className="card-footer">
           <a href="#" className="card-link"><i className="fa fa-gittip"></i> Like</a>
           <a href="#" className="card-link"><i className="fa fa-comment"></i> Comment</a>
-          <a href="#" className="card-link"><i className="fa fa-mail-forward"></i> Share</a>
+          <a href="#" className="card-link"><i className="fa 66323fa-mail-forward"></i> Share</a>
         </div>
       </div> 
     </Container>

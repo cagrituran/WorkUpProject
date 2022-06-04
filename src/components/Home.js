@@ -25,7 +25,7 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
-  padding-top: 52px;
+  padding-top: 12px;
   max-width: 100%;
 `;
 
@@ -70,7 +70,7 @@ const Layout = styled.div`
   column-gap: 10px;
   row-gap: 25px;
   /* grid-template-row: auto; */
-  margin: 25px 0;
+  margin: 55px 0;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;

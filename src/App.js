@@ -6,9 +6,15 @@ import Login from "./components/Login";
 import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
 
-function App() {
-  return (
-    <div className="App">
+
+import React, { Component } from 'react'
+
+
+export default class App extends Component {
+
+  render() {
+    return (
+      <div className="App">
       <Router>
         <Routes>
           <Route exact path="/" element={<Login/>}>
@@ -29,7 +35,8 @@ function App() {
         </Routes>
       </Router>
     </div>
-  );
+    )
+  }
 }
 
-export default App;
+
