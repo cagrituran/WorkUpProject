@@ -21,7 +21,7 @@ function PostForm(props) {
        }).then(res=>{
         //    console.log(res.data) 
            localStorage.setItem('User',JSON.stringify(res.data));   
-           console.log(JSON.parse(localStorage.getItem('User')).id)
+        //    console.log(JSON.parse(localStorage.getItem('User')).id)
            navigate('/home'); 
                                             
        }).catch(function(error){

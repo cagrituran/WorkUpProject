@@ -32,7 +32,7 @@ const Post = (props) => {
           {/* <a className="card-link" href="#">
             <h5 className="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>
           </a> */}
-          <p className="card-text">
+          <p className="card-text text-left">
               {props.postTitle}
           </p>
         </div>
