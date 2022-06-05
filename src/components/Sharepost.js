@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 
 const Sharepost = () => {
     // const navigate = useNavigate();
+    //https://localhost:7079/api/Post
     const url = "https://localhost:7079/api/Post/AddUserPost"
     const[post ,setPost] = useState({
         postTitle:"",

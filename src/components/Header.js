@@ -273,11 +273,11 @@ export default class Header extends Component {
 
   async componentDidMount(){
     const response=await axios.get(`https://localhost:7079/api/Home`);
-    console.log(response.data);
+    // console.log(response.data);
     this.setState({usersandcompanies:response.data})
   };
   searchUserandCompany=(event)=>{
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({search:event.target.value});
   };
   render() {
@@ -285,7 +285,7 @@ export default class Header extends Component {
       return usercompany.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; //search farklı eşit -1 ise
     });
    
-    console.log(filteredUsersandCompanies);
+    // console.log(filteredUsersandCompanies);
     return (
 
       <Container>
