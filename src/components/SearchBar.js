@@ -15,11 +15,11 @@ export default class Searchbar  extends Component {
    
     handleFormSubmit=(event)=>{
         event.preventDefault();
-        console.log("Search form submitted");
+        // console.log("Search form submitted");
       }
   render() {  
       const {isVisible}=this.state;
-      console.log(isVisible);
+    //   console.log(isVisible);
     return (
 
 
@@ -37,14 +37,14 @@ export default class Searchbar  extends Component {
            {
                isVisible ?
                <div>
-            {this.props.usersandcompanies.map((usercompany,key) => {
+            {this.props.usersandcompanies.map((usercompany) => {
                 return (
-                    <li className='autocomplete-result selected' role="option" aria-selected="true">
+                    <li key={usercompany.name} className='autocomplete-result selected' role="option" aria-selected="true">
                         <a>
                             <div>
-                                <div class="kutu1"><i className='fas fa-search'></i> {usercompany.name}</div>
-                                <div  class="kutu2"> <img src={usercompany.image}  style={{ width: 50, height: 50 }}></img></div>
-                            <div class="clear"></div>
+                                <div className="kutu1"><i className='fas fa-search'></i> {usercompany.name}</div>
+                                <div  className="kutu2"> <img src={usercompany.image}  style={{ width: 50, height: 50 }}></img></div>
+                            <div className="clear"></div>
                             </div>          
                         </a>
                     </li>
