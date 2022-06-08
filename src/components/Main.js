@@ -125,7 +125,10 @@ const Main = () => {
     // console.log(id);
     axios.delete(`https://localhost:7079/api/Post/DeleteUserPost/${id}`);
     // window.location.reload(); // tekrar request atmak yerine sadece state güncellemesi kafi :)
+    console.log(data);
     const newPosts = data.filter(m=>m.id!==id);
+    console.log(newPosts);
+    
     setData(newPosts);
     
     
@@ -146,7 +149,7 @@ const Main = () => {
         console.log(item);
         return(
         <li key={item.id}>
-          <Post deletePostProp = {deletePost} postId={item.id} publisherId={item.publisherId} postType={item.postType} name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
+          <Post likers={item.postLikeIds} postLike = {item.postLike} deletePostProp = {deletePost} postId={item.id} publisherId={item.publisherId} postType={item.postType} name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
         </li>);
       })}
     </div>

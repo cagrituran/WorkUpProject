@@ -3,15 +3,73 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+// import LikeButton from "./LikeButton";
 const Post = (props) => {
   const url = "https://localhost:7079/api/Post/UpdateUserPost"
+  
     const[postc ,setPostc] = useState({
         id:0,
         postTitle:"",
         publisherId:0
     })
+  const url2 = "https://localhost:7079/api/PostLike/LikeSave"
+  const[likeb ,setLikeb] = useState({
+    
+    postId:props.postId,
+    modifierUserId:JSON.parse(localStorage.getItem("User")).id
+     })
+  function submitLike(e){
+    setLike(like + 1);
+    setIsLike(true);
+    e.preventDefault()
+    
+    
+    Axios.post(url2,{
+      postId:likeb.postId,
+      modifierUserId:likeb.modifierUserId
+      
+  }).then(res=>{
+    //    console.log(res.data) 
+    
+     
+       console.log(res)
+      //  console.log(props.likers.includes(JSON.parse(localStorage.getItem("User")).id));
+      //  window.location.reload();
+    
+    //    navigate('/home'); 
+                                        
+   })
 
+  }
+    
+  const [likers,setLikers] = useState(props.likers);
   const [show, setShow] = useState(false);
+  const [like, setLike] = useState(props.postLike),
+    [isLike, setIsLike] = useState(false),
+    // onLikeButtonClick = (id) => {
+    //   setLikeb({postId:id,modifierUserId:JSON.parse(localStorage.getItem("User")).id})
+    //   setLike(like + 1);
+     
+      
+    //   setIsLike(!isLike);
+      
+    // },
+    offLikeButtonClick = async() => {
+      // Axios.delete(`https://localhost:7079/api/PostLike/LikeRemove`,{postId: props.postId,
+      // userId:JSON.parse(localStorage.getItem("User")).id});
+      Axios.delete(`https://localhost:7079/api/PostLike/LikeRemove/${props.postId}/${JSON.parse(localStorage.getItem("User")).id}`);
+      // console.log(props.postId);
+      setLike(like - 1);
+      console.log(likers);
+      const newLikers = likers.filter(m=>m!==JSON.parse(localStorage.getItem("User")).id);
+      setLikers(newLikers);
+      console.log(newLikers)
+      console.log(likers);
+     
+      
+      setIsLike(false);
+      
+    };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -108,9 +166,57 @@ function handleWrite(e){
         <p className="card-text text-left ">{props.postTitle}</p>
       </div>
       <div className="card-footer">
-        <a href="#" className="card-link">
-          <i className="fa fa-gittip"></i> Like
-        </a>
+        {/* {props.postLike} */}
+        {/* <a href="#" className="card-link">
+          <i className="fa fa-thumbs-up "aria-hidden="true"></i> Like
+        </a> */}
+         <>
+      {isLike===false && likers.includes(JSON.parse(localStorage.getItem("User")).id)===false ? (<form onSubmit={(e)=>submitLike(e)}><div className="text-left"> <button 
+        className={"like-button"}
+        // onClick={onLikeButtonClick(props.postId)}
+      >
+        {"Like"} | {like}
+      </button>
+      <style>{`
+        .like-button {
+            font-size: 1rem;
+            padding: 5px 10px;
+            color:  #585858;
+            background-color:gray
+            
+        }
+        .liked {
+            font-weight: bold;
+            color: #1565c0;
+            background-color:gray
+            
+          }
+      `}</style></div></form>):(<div className="text-left"> <button
+        className={"like-button liked"}
+        onClick={offLikeButtonClick}
+      >
+        {"Like"} | {like}
+      </button>
+      <style>{`
+        .like-button {
+            font-size: 1rem;
+            padding: 5px 10px;
+            color:  #585858;
+            background-color:gray
+            
+            
+        }
+        .liked {
+            font-weight: bold;
+            color: #1565c0;
+            background-color:gray
+            
+            
+          }
+      `}</style></div>)  }
+     
+    </>
+        
         <a href="#" className="card-link">
           <i className="fa fa-comment"></i> Comment
         </a>
@@ -120,7 +226,7 @@ function handleWrite(e){
         {/* <a href="#" className="card-link"><i className="fa fa-trash"></i> Delete</a> */}
         {props.postType === "U" &&
         props.publisherId === JSON.parse(localStorage.getItem("User")).id ? (
-          <div>
+          <div className="text-left">
             <button
               onClick={() => props.deletePostProp(props.postId)}
               type="button"
@@ -135,7 +241,7 @@ function handleWrite(e){
             </Button>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Yorum</Modal.Title>
+                <Modal.Title>Post</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <Form onSubmit={(e)=>submitPost(e)}>
@@ -154,7 +260,7 @@ function handleWrite(e){
                     className="mb-3"
                     controlId="postTitle"
                   >
-                    <Form.Label>Yorumu Değiştir</Form.Label>
+                    <Form.Label>Güncelle</Form.Label>
                     <Form.Control onChange={(e)=> handleWrite(e)} as="textarea" rows={3} autoFocus defaultValue={props.postTitle}></Form.Control>
                     <Button type="submit" variant="primary" onClick={handleClose}>
                   Save Changes
