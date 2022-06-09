@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 const Sharepost = () => {
     // const navigate = useNavigate();
+    //https://localhost:7079/api/Post
+    //https://localhost:7079/api/PostLike/LikeSave
     const url = "https://localhost:7079/api/Post/AddUserPost"
     const[post ,setPost] = useState({
         postTitle:"",

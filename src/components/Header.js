@@ -24,7 +24,7 @@ export default class Header extends Component {
   
   async componentDidMount(){
     const response=await axios.get(`https://localhost:7079/api/Home`);
-    console.log(response.data);
+    // console.log(response.data);
     this.setState({usersandcompanies:response.data})
     const response2 =await axios.get(
       `https://localhost:7079/api/UserExperience/user/${JSON.parse(localStorage.getItem('User')).id}`
@@ -33,13 +33,14 @@ export default class Header extends Component {
     this.setState({ experience: response2.data});
   };
   searchUserandCompany=(event)=>{
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({search:event.target.value});
   };
   render() {
     let filteredUsersandCompanies=this.state.usersandcompanies.filter((usercompany)=>{
       return usercompany.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; //search farklı eşit -1 ise
     });
+
     // console.log(filteredUsersandCompanies);
     return (
 

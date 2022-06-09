@@ -105,6 +105,7 @@
 
 // export default Main;
 
+import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Post from "./Post";
@@ -120,6 +121,19 @@ const Main = () => {
       .then((data) => setData(data));
   }, []);
 
+  const deletePost = async(id)=>{
+    // console.log(id);
+    axios.delete(`https://localhost:7079/api/Post/DeleteUserPost/${id}`);
+    // window.location.reload(); // tekrar request atmak yerine sadece state güncellemesi kafi :)
+    console.log(data);
+    const newPosts = data.filter(m=>m.id!==id);
+    console.log(newPosts);
+    
+    setData(newPosts);
+    
+    
+  }
+
   return (
     
     <Container>
@@ -132,9 +146,12 @@ const Main = () => {
         // fetch(`https://localhost:7079/api/PostComment/GetPostComments/${item.id}`).then((response) => response.json())
         // .then((data) => setComment(data));
         // console.log(comment)
+        console.log(item);
         return(
         <li key={item.id}>
-          <Post name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn} image={item.profileImage}></Post>
+
+          <Post likers={item.postLikeIds} postLike = {item.postLike} deletePostProp = {deletePost} postId={item.id} publisherId={item.publisherId} postType={item.postType} name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
+
         </li>);
       })}
     </div>
