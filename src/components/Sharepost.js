@@ -2,12 +2,6 @@
 import Axios from "axios";
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-
-
-
-
-
-
 const Sharepost = () => {
     // const navigate = useNavigate();
     //https://localhost:7079/api/Post

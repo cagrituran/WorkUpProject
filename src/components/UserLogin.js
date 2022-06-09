@@ -1,9 +1,10 @@
 // import { setUserSession } from './Utils/Common';
 import Axios from "axios";
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from "styled-components";
-
+import Header from "./Header";
+import Home from "./Home";
  
 function PostForm(props) {
     const navigate = useNavigate();
@@ -20,10 +21,13 @@ function PostForm(props) {
            password:data.password
        }).then(res=>{
         //    console.log(res.data) 
+           
+            // <Navigate to="/home"/>
            localStorage.setItem('User',JSON.stringify(res.data));   
         //    console.log(JSON.parse(localStorage.getItem('User')).id)
-           navigate('/home'); 
-                                            
+    
+        navigate('/home');
+                                   
        }).catch(function(error){
            if(error.response){
                console.log(error.response.data);
