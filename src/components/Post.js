@@ -5,7 +5,7 @@ const Post = (props) => {
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex justify-content-between align-items-center">
               <div className="mr-2">
-                <img className="rounded-circle" width="45" src="https://picsum.photos/50/50" alt=""/>
+                <img className="rounded-circle" width="45" src={props.image} alt=""/>
               </div>
               <div className="ml-2">
                 <div className="h5 m-0">{props.name}</div>

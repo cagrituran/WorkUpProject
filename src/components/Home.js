@@ -84,8 +84,29 @@ import styled from "styled-components";
 import Leftside from "./Leftside";
 import Main from "./Main";
 import Rightside from "./Rightside";
+import { Navigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+
 
 const Home = (props) => {
+
+//   const [user,setUser]=useState([]);
+
+// useEffect(() => {
+//   const user = JSON.parse(localStorage.getItem('User'));
+//   console.log(user);
+//   if (user) {
+//    setUser(user);
+//   }
+ 
+  // }, []);
+  // if(props.user===null){
+  //   return  <Navigate to="/loginuser" replace />;
+  // }
+  // console.log(props.user)
+  // if(props.user===null){
+  //  return  <Navigate to="/loginuser" replace />
+  // }
   return (
     <Container>
       <Section>

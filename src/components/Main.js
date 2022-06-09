@@ -134,7 +134,7 @@ const Main = () => {
         // console.log(comment)
         return(
         <li key={item.id}>
-          <Post name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
+          <Post name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn} image={item.profileImage}></Post>
         </li>);
       })}
     </div>
