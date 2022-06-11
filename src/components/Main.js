@@ -150,7 +150,7 @@ const Main = () => {
         return(
         <li key={item.id}>
 
-          <Post likers={item.postLikeIds} postLike = {item.postLike} deletePostProp = {deletePost} postId={item.id} publisherId={item.publisherId} postType={item.postType} name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
+          <Post userImage={item.profileImage} likers={item.postLikeIds} postLike = {item.postLike} deletePostProp = {deletePost} postId={item.id} publisherId={item.publisherId} postType={item.postType} name={item.name} postTitle={item.postTitle} lastName={item.lastName} createdOn={item.createdOn}></Post>
 
         </li>);
       })}
