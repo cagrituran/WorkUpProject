@@ -9,7 +9,7 @@ export default function ProfileData() {
           .then((response) => response.json())
           .then((data) => usersetData(data));
           }
-          fetchData()
+          fetchData()//
 
 
       }, []);
