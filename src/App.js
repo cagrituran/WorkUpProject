@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-import { useNavigate ,Navigate,BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -7,7 +7,8 @@ import Login from "./components/Login";
 import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
 
-import React, { Component } from 'react';
+import { Component } from 'react';
+import ProfileData from "./components/ProfileData";
 
 export default class App extends Component {
   state={
@@ -27,7 +28,7 @@ export default class App extends Component {
   //   console.log(e.target.value);
   // }
   render() {
-    console.log(this.state.user);
+    // console.log(this.state.user);
     return (
       <div className="App">
       <Router>
@@ -47,6 +48,8 @@ export default class App extends Component {
           <Route path="/home" element={<><Header/><Home/></>}>
             
           </Route>
+
+          <Route path="/profile" element={<><Header/><ProfileData/></>} ></Route>
           
         </Routes>
       </Router>
