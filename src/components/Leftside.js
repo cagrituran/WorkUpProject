@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
+
 const Leftside = (props) => {
+  const name =JSON.parse(localStorage.getItem("User")).name;
+  const lastname =JSON.parse(localStorage.getItem("User")).lastName;
+  //const  profileImage=JSON.parse(localStorage.getItem('User')).profileImage;
+  const country =JSON.parse(localStorage.getItem("User")).country;
+  const city =JSON.parse(localStorage.getItem("User")).city;
+
+
+
   return (
     <Container>
       <ArtCard>
@@ -8,17 +17,17 @@ const Leftside = (props) => {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, there!</Link>
+            <a href="/Profile">{name} {lastname}</a>
           </a>
           <a>
-            <AddPhotoText>Add a photo</AddPhotoText>
+          <AddPhotoText>{country}/{city}</AddPhotoText>
           </a>
         </UserInfo>
         <Widget>
           <a>
             <div>
-              <span>Connections</span>
-              <span>Grow your network</span>
+              <span>Bağlantılar</span>
+              <span>Ağınızı Büyütün</span>
             </div>
             <img src="/images/widget-icon.svg" alt="" />
           </a>
@@ -26,26 +35,26 @@ const Leftside = (props) => {
         <Item>
           <span>
             <img src="/images/item-icon.svg" alt="" />
-            My Items
+            Kaydedilen Gönderiler
           </span>
         </Item>
       </ArtCard>
 
       <CommunityCard>
         <a>
-          <span>Groups</span>
+          <span>Gruplar</span>
         </a>
         <a>
           <span>
-            Events
+            Etkinlikler
             <img src="/images/plus-icon.svg" alt="" />
           </span>
         </a>
         <a>
-          <span>Follow Hashtags</span>
+          <span>Hashtag</span>
         </a>
         <a>
-          <span>Discover more</span>
+          <span>Daha Fazlasını Keşfet</span>
         </a>
       </CommunityCard>
     </Container>
