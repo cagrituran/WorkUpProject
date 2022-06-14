@@ -14,6 +14,7 @@ export default class Header extends Component {
     name:JSON.parse(localStorage.getItem('User')).name,
     lastname:JSON.parse(localStorage.getItem('User')).lastName,
     experience:[],
+    
   }
 
   // const response2=await fetch(`https://localhost:7079/api/UserExperience/${JSON.parse(localStorage.getItem('User')).id}/user`);
@@ -42,6 +43,7 @@ export default class Header extends Component {
     });
 
     // console.log(filteredUsersandCompanies);
+    // console.log(this.state.experience.length)
     return (
 
       <Container>
@@ -101,17 +103,23 @@ export default class Header extends Component {
               </a>
 
               <SignOut>
-              {
-                 this.state.experience.slice(-1).map((e)=>{
-                   console.log(e);
-                  return(
-                  <div key={e.id}>
-                    <HeaderUser experience={e.profileTitle} image={this.state.image} name={this.state.name} lastname={this.state.lastname} />  
-                    </div>         
-                  )
-                })
-              }
-                  
+                
+                  {
+                    this.state.experience.length!==0 ? 
+                    this.state.experience.slice(-1).map((e)=>{
+                      console.log(e);
+                    return(
+                    <div key={e.id}>
+                      {
+                          <HeaderUser experience={e.profileTitle} image={this.state.image} name={this.state.name} lastname={this.state.lastname} />
+                      }
+                        
+                      </div>         
+                    )
+                  }):
+                  <HeaderUser image={this.state.image} name={this.state.name} lastname={this.state.lastname} />
+                  }
+                 
               </SignOut>
             </User>
 

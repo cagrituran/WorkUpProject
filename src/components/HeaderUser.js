@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function HeaderUser(props) {
-    const navigate=useNavigate();
+   const navigate=useNavigate();
    function logout(e){
         e.preventDefault();
         localStorage.clear();
@@ -19,6 +19,7 @@ export default function HeaderUser(props) {
                        </div>
                        <div className='burcutext'>
                            <div className='burcutext1'><p className='text'>{props.name} {props.lastname}</p></div>
+                            
                             <div className='burcutext2'><p className='text1'>{props.experience}</p></div>
                        </div>
                    </div>

@@ -1,26 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import Axios from "axios";
-const Leftside = (props) => {
-  const navigate=useNavigate();
-  function submit(e){
-      e.preventDefault();
-      navigate('/mycompany');
-  }
-  
+import React from 'react';
+import styled from 'styled-components';
+
+export default function BasePageLeftSide() {
   return (
-    <Container>
-      <ArtCard>
-        <UserInfo>
-          <CardBackground />
-          <a>
-            <Photo />
-            <Link>Welcome, there!</Link>
-          </a>
-          <a>
-            <AddPhotoText>Add a photo</AddPhotoText>
-          </a>
-        </UserInfo>
+     <Container>
+        <ArtCard>
+        
         <Widget>
           <a>
             <div>
@@ -38,36 +23,24 @@ const Leftside = (props) => {
         </Item>
       </ArtCard>
 
-      {
-        props.usercompany.length!==0?
-        <CommunityCard>
-        <a>
-          <span><h6>Sayfalarım</h6></span>
-        </a>
-        {props.usercompany.map((item) => {
-        console.log(item);
-        return(
-          <button  key={item.id} className='buttonleftside' onClick={(e)=>submit(e)} onMouseEnter={()=>props.comPageChangeProps(item.id)}>       
-              <div className='leftsidediv1'> <img src={item.companyImage} style={{width:40,height:40}}/></div>
-             <div className='leftsidediv2'>{item.companyName}</div>
-          </button>
-      );
-      })}
-      </CommunityCard>:null
-      }
      
-    </Container>
-  );
-};
+
+     </Container>
+  )
+}
+const LefSideContainer = styled.div`
+    
+`;
 
 const Container = styled.div`
-  grid-area: leftside;
+  margin-top:350px;
 `;
 
 const ArtCard = styled.div`
   text-align: center;
   overflow: hidden;
-  margin:8px 20px;
+  float:left;
+
   background-color: #fff;
   border-radius: 5px;
   transition: box-shadow 83ms;
@@ -83,46 +56,9 @@ const UserInfo = styled.div`
   word-break: break-word;
 `;
 
-const CardBackground = styled.div`
-  background: url("/images/card-bg.svg");
-  background-position: center;
-  background-size: 462px;
-  height: 54px;
-  margin: -12px -12px 0;
-`;
-
-const Photo = styled.div`
-  box-shadow: none;
-  background-image: url("/images/photo.svg");
-  width: 72px;
-  height: 72px;
-  box-sizing: border-box;
-  background-clip: content-box;
-  background-color: white;
-  background-position: center;
-  background-size: 60%;
-  background-repeat: no-repeat;
-  border: 2px solid white;
-  margin: -38px auto 12px;
-  border-radius: 50%;
-`;
-
-const Link = styled.div`
-  font-size: 16px;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.9);
-  font-weight: 600;
-`;
-
-const AddPhotoText = styled.div`
-  color: #0a66c2;
-  margin-top: 4px;
-  font-size: 12px;
-  line-height: 1.33;
-  font-weight: 400;
-`;
 
 const Widget = styled.div`
+float:left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 12px;
   padding-bottom: 12px;
@@ -212,5 +148,3 @@ const CommunityCard = styled(ArtCard)`
     }
   }
 `;
-
-export default Leftside;
