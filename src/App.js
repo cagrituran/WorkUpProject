@@ -8,7 +8,7 @@ import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
 
 import { Component } from 'react';
-import ProfileData from "./components/ProfileData";
+import Profile from "./components/Profile";
 
 export default class App extends Component {
   state={
@@ -49,7 +49,7 @@ export default class App extends Component {
             
           </Route>
 
-          <Route path="/profile" element={<><Header/><ProfileData/></>} ></Route>
+          <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
           
         </Routes>
       </Router>
