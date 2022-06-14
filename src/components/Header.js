@@ -58,14 +58,14 @@ export default class Header extends Component {
         <Nav>
           <NavListWrap>
             <NavList className="active">
-              <a>
+              <a href="/home">
                 <img src="/images/nav-home.svg" alt="" />
                 <span>Anasayfa</span>
               </a>
             </NavList>
 
             <NavList>
-              <a>
+              <a href="/mynetwork">
                 <img src="/images/nav-network.svg" alt="" />
                 <span>Ağım</span>
               </a>

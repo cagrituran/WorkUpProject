@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
+import MyNetwork from "./components/MyNetwork";
 
 import { Component } from 'react';
 import Profile from "./components/Profile";
@@ -45,11 +46,11 @@ export default class App extends Component {
           {/* <Route path="/home" element={JSON.parse(localStorage.getItem('User'))===null?<Navigate to="/loginuser"/> :<><Header/><Home/></>}>
             
           </Route> */}
-          <Route path="/home" element={<><Header/><Home/></>}>
-            
-          </Route>
+          <Route path="/home" element={<><Header/><Home/></>}></Route>
 
           <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
+          
+          <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
           
         </Routes>
       </Router>
