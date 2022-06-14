@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
-const Leftside = (props) => {
+const MyNetworkRight = (props) => {
   const name = JSON.parse(localStorage.getItem("User")).name;
   const lastname = JSON.parse(localStorage.getItem("User")).lastName;
   //const  profileImage=JSON.parse(localStorage.getItem('User')).profileImage;
@@ -10,119 +10,65 @@ const Leftside = (props) => {
 
   const location = useLocation();
   console.log(location);
-  // if (location.pathname === "/home") {
-    return (
-      <Container>
-        <ArtCard>
-          <UserInfo>
-            <CardBackground />
-            <a>
-              <Photo />
-              <a href="/Profile">
-                {name} {lastname}
-              </a>
-            </a>
-            <a>
-              <AddPhotoText>
-                {country}/{city}
-              </AddPhotoText>
-            </a>
-          </UserInfo>
-          <Widget>
-            <a>
-              <div>
-                <span>Bağlantılar</span>
-                <span>Ağınızı Büyütün</span>
-              </div>
-              <img src="/images/widget-icon.svg" alt="" />
-            </a>
-          </Widget>
-          <Item>
-            <span>
-              <img src="/images/item-icon.svg" alt="" />
-              Kaydedilen Gönderiler
-            </span>
-          </Item>
-        </ArtCard>
+ 
+     return (
+       <Container>
+         <ArtCard>
+           <UserInfo>
+             <CardBackground />
+             <a>
+               <Photo />
+               <a href="/profile">
+                 {name} {lastname}
+               </a>
+             </a>
+             <a>
+               <AddPhotoText>
+                 {country}/{city}
+               </AddPhotoText>
+             </a>
+           </UserInfo>
+           <Widget>
+             <a>
+               <div>
+                 <span>Ağım</span>
+                 <span>Ağınızı Büyütün</span>
+               </div>
+               <img src="/images/widget-icon.svg" alt="" />
+             </a>
+           </Widget>
+           <Item>
+             <span>
+               <img src="/images/item-icon.svg" alt="" />
+               Kaydedilen Gönderiler
+             </span>
+           </Item>
+         </ArtCard>
 
-        <CommunityCard>
-          <a>
-            <span>Gruplar</span>
-          </a>
-          <a>
-            <span>
-              Etkinlikler
-              <img src="/images/plus-icon.svg" alt="" />
-            </span>
-          </a>
-          <a>
-            <span>Hashtag</span>
-          </a>
-          <a>
-            <span>Daha Fazlasını Keşfet</span>
-          </a>
-        </CommunityCard>
-      </Container>
-    );
-  // } else {
-  //   return (
-  //     <Container>
-  //       <ArtCard>
-  //         <UserInfo>
-  //           <CardBackground />
-  //           <a>
-  //             <Photo />
-  //             <a href="/profile">
-  //               {name} {lastname}
-  //             </a>
-  //           </a>
-  //           <a>
-  //             <AddPhotoText>
-  //               {country}/{city}
-  //             </AddPhotoText>
-  //           </a>
-  //         </UserInfo>
-  //         <Widget>
-  //           <a>
-  //             <div>
-  //               <span>Ağım</span>
-  //               <span>Ağınızı Büyütün</span>
-  //             </div>
-  //             <img src="/images/widget-icon.svg" alt="" />
-  //           </a>
-  //         </Widget>
-  //         <Item>
-  //           <span>
-  //             <img src="/images/item-icon.svg" alt="" />
-  //             Kaydedilen Gönderiler
-  //           </span>
-  //         </Item>
-  //       </ArtCard>
-
-  //       <CommunityCard>
-  //         <a>
-  //           <span>Gruplar</span>
-  //         </a>
-  //         <a>
-  //           <span>
-  //             Etkinlikler
-  //             <img src="/images/plus-icon.svg" alt="" />
-  //           </span>
-  //         </a>
-  //         <a>
-  //           <span>Hashtag</span>
-  //         </a>
-  //         <a>
-  //           <span>Daha Fazlasını Keşfet</span>
-  //         </a>
-  //       </CommunityCard>
-  //     </Container>
-  //   );
-  // }
+         <CommunityCard>
+           <a>
+             <span>Gruplar</span>
+           </a>
+           <a>
+             <span>
+               Etkinlikler
+               <img src="/images/plus-icon.svg" alt="" />
+             </span>
+           </a>
+           <a>
+             <span>Hashtag</span>
+           </a>
+           <a>
+             <span>Daha Fazlasını Keşfet</span>
+           </a>
+         </CommunityCard>
+       </Container>
+     );
+   
 };
 
 const Container = styled.div`
-  grid-area: leftside;
+
 `;
 
 const ArtCard = styled.div`
@@ -274,4 +220,4 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
-export default Leftside;
+export default MyNetworkRight;
