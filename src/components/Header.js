@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import axios from "axios";
- import React, { Component} from 'react';
+import { Component } from 'react';
 import styled from "styled-components";
-import SearchBar from "./SearchBar";
 import HeaderUser from "./HeaderUser";
+import SearchBar from "./SearchBar";
 
 export default class Header extends Component {
   
@@ -30,7 +30,7 @@ export default class Header extends Component {
     const response2 =await axios.get(
       `https://localhost:7079/api/UserExperience/user/${JSON.parse(localStorage.getItem('User')).id}`
     );
-    console.log(response2.data);
+    // console.log(response2.data);
     this.setState({ experience: response2.data});
   };
   searchUserandCompany=(event)=>{
@@ -60,14 +60,14 @@ export default class Header extends Component {
         <Nav>
           <NavListWrap>
             <NavList className="active">
-              <a>
+              <a href="/home">
                 <img src="/images/nav-home.svg" alt="" />
                 <span>Anasayfa</span>
               </a>
             </NavList>
 
             <NavList>
-              <a>
+              <a href="/mynetwork">
                 <img src="/images/nav-network.svg" alt="" />
                 <span>Ağım</span>
               </a>
@@ -103,6 +103,7 @@ export default class Header extends Component {
               </a>
 
               <SignOut>
+
                 
                   {
                     this.state.experience.length!==0 ? 
@@ -120,6 +121,8 @@ export default class Header extends Component {
                   <HeaderUser image={this.state.image} name={this.state.name} lastname={this.state.lastname} />
                   }
                  
+
+
               </SignOut>
             </User>
 

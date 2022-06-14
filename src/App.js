@@ -1,16 +1,24 @@
+
+
+
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UserLogin from "./components/UserLogin";
 import UserRegister from "./components/UserRegister";
+
 import MyCompany from "./components/MyCompany";
 
 import React, { useEffect, useState } from 'react';
 import {useNavigate,Navigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from "axios";
+import MyNetwork from "./components/MyNetwork";
+import { Component } from 'react';
+import Profile from "./components/Profile";
 // // import React, { Component } from 'react';
 // export default class App extends Component {
+
 
 //   state={
 //     // user:null,
@@ -90,6 +98,9 @@ import axios from "axios";
 
           </Route>
         <Route path="/mycompany" element={<><Header/><MyCompany companyProps={company}/></>}></Route>
+           <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
+          
+          <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
       </Routes> 
     </Router>
   </div>

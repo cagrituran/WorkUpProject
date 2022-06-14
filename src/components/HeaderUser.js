@@ -1,18 +1,31 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from "styled-components";
 
 export default function HeaderUser(props) {
+
    const navigate=useNavigate();
+
+    
+    
+
    function logout(e){
         e.preventDefault();
         localStorage.clear();
         navigate('/loginuser')
     }
+    function goProfile(e){
+     e.preventDefault(); 
+     navigate('/profile')
+      
+        
+        
+        
+    }
   return (
     <div className='burcucard'>
            <div className='burcucard1'>
                <form>
-               <button className='burcubutton'>
+               
                    <div className='burcucard2'>
                        <div className='burcuimage'>
                            <img src={props.image} className='imgburcu'/>
@@ -23,8 +36,9 @@ export default function HeaderUser(props) {
                             <div className='burcutext2'><p className='text1'>{props.experience}</p></div>
                        </div>
                    </div>
-                   <div className='burcucard3'><div className='viewprofile'>Profili Görüntüle</div></div>
-               </button>
+                   
+               
+               <div className='burcucard3'><Button1 onClick={(e)=>goProfile(e)}>Profili Görüntüle</Button1></div>
                </form>
            </div>
            <hr/>
@@ -37,5 +51,16 @@ export default function HeaderUser(props) {
        </div>
   )
 }
-
-
+const Button1 = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1890ff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s background;
+  &:hover {
+    background: #40a9ff;
+  }
+`;

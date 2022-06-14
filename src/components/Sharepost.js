@@ -1,11 +1,12 @@
 
 import Axios from "axios";
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 const Sharepost = () => {
     // const navigate = useNavigate();
     //https://localhost:7079/api/Post
     //https://localhost:7079/api/PostLike/LikeSave
+    //https://localhost:7079/api/PostComment/DoComment
     const url = "https://localhost:7079/api/Post/AddUserPost"
     const[post ,setPost] = useState({
         postTitle:"",

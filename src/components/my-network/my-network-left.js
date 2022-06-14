@@ -1,104 +1,59 @@
-import { useNavigate,useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Axios from "axios";
+import { useLocation } from "react-router-dom";
+import axios from 'axios';
 
-
-
-
-const Leftside = (props) => {
-     const navigate=useNavigate();
-  function submit(e){
-      e.preventDefault();
-      navigate('/mycompany');
-  }
+const MyNetworkLeft = (props) => {
   const name = JSON.parse(localStorage.getItem("User")).name;
+  const Id = JSON.parse(localStorage.getItem("User")).id;
   const lastname = JSON.parse(localStorage.getItem("User")).lastName;
   //const  profileImage=JSON.parse(localStorage.getItem('User')).profileImage;
   const country = JSON.parse(localStorage.getItem("User")).country;
   const city = JSON.parse(localStorage.getItem("User")).city;
 
   const location = useLocation();
+  debugger
   console.log(location);
-  // if (location.pathname === "/home") {
-    return (
-      <Container>
-        <ArtCard>
-          <UserInfo>
-            <CardBackground />
-            <a>
-              <Photo />
-              <a href="/Profile">
-                {name} {lastname}
-              </a>
-            </a>
-            <a>
-              <AddPhotoText>
-                {country}/{city}
-              </AddPhotoText>
-            </a>
-          </UserInfo>
-          <Widget>
-            <a>
-              <div>
-                <span>Bağlantılar</span>
-                <span>Ağınızı Büyütün</span>
-              </div>
-              <img src="/images/widget-icon.svg" alt="" />
-            </a>
-          </Widget>
-          <Item>
-            <span>
-              <img src="/images/item-icon.svg" alt="" />
-              Kaydedilen Gönderiler
-            </span>
-          </Item>
-        </ArtCard>
-
-        <CommunityCard>
-
+    axios.get(`https://localhost:7079/api/UserFollower/${Id}`)
+      .then(res => {
+        debugger
+        const persons = res.data;
+        // this.setState({ persons });
+      })
+  
+  return (
+    <Container>
+      <ArtCard>
+        <Widget>
           <a>
-            <span>Gruplar</span>
+            <img src="/images/widget-icon.svg" alt="" />
+            <div>
+              <strong>Bağlantı</strong>
+            </div>            
+            <span>50</span>
           </a>
           <a>
-            <span>
-              Etkinlikler
-              <img src="/images/plus-icon.svg" alt="" />
-            </span>
+            <img src="/images/widget-icon.svg" alt="" />
+            <div>
+              <strong>Kişiler</strong>
+            </div>
+              <span>100</span>
           </a>
-          <a>
-            <span>Hashtag</span>
+           <a>
+            <img src="/images/widget-icon.svg" alt="" />
+            <div>
+              <strong>Kişiler</strong>
+            </div>
           </a>
-
         </Widget>
         <Item>
           <span>
             <img src="/images/item-icon.svg" alt="" />
-            My Items
+            Kaydedilen Gönderiler
           </span>
         </Item>
       </ArtCard>
-
-      {
-        props.usercompany.length!==0?
-        <CommunityCard>
-        <a>
-          <span><h6>Sayfalarım</h6></span>
-        </a>
-        {props.usercompany.map((item) => {
-        console.log(item);
-        return(
-          <button  key={item.id} className='buttonleftside' onClick={(e)=>submit(e)} onMouseEnter={()=>props.comPageChangeProps(item.id)}>       
-              <div className='leftsidediv1'> <img src={item.companyImage} style={{width:40,height:40}}/></div>
-             <div className='leftsidediv2'>{item.companyName}</div>
-          </button>
-      );
-      })}
-      </CommunityCard>:null
-      }
-     
     </Container>
   );
-
 };
 
 const Container = styled.div`
@@ -254,4 +209,4 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
-export default Leftside;
+export default MyNetworkLeft;
