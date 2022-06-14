@@ -1,74 +1,41 @@
-import { useNavigate,useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Axios from "axios";
-
-
-
-
 const Leftside = (props) => {
-     const navigate=useNavigate();
-  function submit(e){
-      e.preventDefault();
-      navigate('/mycompany');
-  }
   const name = JSON.parse(localStorage.getItem("User")).name;
   const lastname = JSON.parse(localStorage.getItem("User")).lastName;
   //const  profileImage=JSON.parse(localStorage.getItem('User')).profileImage;
   const country = JSON.parse(localStorage.getItem("User")).country;
   const city = JSON.parse(localStorage.getItem("User")).city;
-
+  const navigate=useNavigate();
   const location = useLocation();
-  console.log(location);
-  // if (location.pathname === "/home") {
-    return (
-      <Container>
-        <ArtCard>
-          <UserInfo>
-            <CardBackground />
-            <a>
-              <Photo />
-              <a href="/Profile">
+  function submit(e){
+      e.preventDefault();
+      navigate('/mycompany');
+  }
+  
+  return (
+    <Container>
+      <ArtCard>
+        <UserInfo>
+          <CardBackground />
+          <a>
+            <Photo />
+            <a href="/Profile">
                 {name} {lastname}
-              </a>
             </a>
-            <a>
-              <AddPhotoText>
-                {country}/{city}
-              </AddPhotoText>
-            </a>
-          </UserInfo>
-          <Widget>
-            <a>
-              <div>
-                <span>Bağlantılar</span>
-                <span>Ağınızı Büyütün</span>
-              </div>
-              <img src="/images/widget-icon.svg" alt="" />
-            </a>
-          </Widget>
-          <Item>
-            <span>
-              <img src="/images/item-icon.svg" alt="" />
-              Kaydedilen Gönderiler
-            </span>
-          </Item>
-        </ArtCard>
-
-        <CommunityCard>
-
-          <a>
-            <span>Gruplar</span>
           </a>
           <a>
-            <span>
-              Etkinlikler
-              <img src="/images/plus-icon.svg" alt="" />
-            </span>
+            <AddPhotoText>{country}/{city}</AddPhotoText>
           </a>
+        </UserInfo>
+        <Widget>
           <a>
-            <span>Hashtag</span>
+            <div>
+              <span>Connections</span>
+              <span>Grow your network</span>
+            </div>
+            <img src="/images/widget-icon.svg" alt="" />
           </a>
-
         </Widget>
         <Item>
           <span>
@@ -77,13 +44,12 @@ const Leftside = (props) => {
           </span>
         </Item>
       </ArtCard>
+      
 
       {
         props.usercompany.length!==0?
         <CommunityCard>
-        <a>
-          <span><h6>Sayfalarım</h6></span>
-        </a>
+          
         {props.usercompany.map((item) => {
         console.log(item);
         return(
@@ -98,7 +64,6 @@ const Leftside = (props) => {
      
     </Container>
   );
-
 };
 
 const Container = styled.div`
@@ -108,7 +73,7 @@ const Container = styled.div`
 const ArtCard = styled.div`
   text-align: center;
   overflow: hidden;
-  margin: 8px 20px;
+  margin:8px 20px;
   background-color: #fff;
   border-radius: 5px;
   transition: box-shadow 83ms;
