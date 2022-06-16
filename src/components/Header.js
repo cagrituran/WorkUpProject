@@ -51,7 +51,7 @@ export default class Header extends Component {
       <Content>
         <Logo>
           <a href="/home">
-            <img src="/images/home-logo.svg" alt="" />
+            <img src="/images/upimg.png" style={{width:60,height:60}}alt="" />
           </a>
         </Logo>
 

@@ -15,7 +15,7 @@
     float:right;
     width:25%;
     height: 100%;
-    
+
 }
 .navigate1{
     margin-left: 100px;
@@ -91,7 +91,7 @@ button.buttonleftside:hover{
 .baseapagecompany{
     width:100%;
     height:100%;
-   
+
 }
 .basepagecompanybutton{
     clear:left;
@@ -119,7 +119,7 @@ button.buttondüzenle:hover{
   font-weight: 400;
   float:left;
 height: 25%;
- 
+
 }
 .basepageslogan{
     clear:left;
@@ -132,9 +132,74 @@ height: 25%;
     float: left;
     font-weight:lighter;
 }
-.xxx{
-    margin-top: 30px;
-    height: 100%;
-    
+.layout2{
+    width:100%;
+    margin-top:0px;
+    height:500px;
+    margin-bottom:18px;
+    align-items: center;
+}
+.baseLeftSideContainer{
+  width:25%;
+  float:left;
+  /* background-color: blueviolet; */
+}
+.baseMain{
+    width:44%;
+    float:left;
+    /* background-color: brown; */
+}
+.baseLeftSideArtcard{
+  text-align: center;
+  overflow: hidden;
+  margin-left:100px;
+  float:left;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: box-shadow 83ms;
+  position: relative;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+
+}
+.baseLeftSideAnalizler{
+    width:100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.heade:hover{
+    background-color: rgba(0, 0, 0, 0.08);
+}
+.header{
+    width:100%;
+    padding: 5px 25px;
+    font-size: 16px;
+}
+.headertext{
+    font-weight:lighter;
+    font-size: small;
+    color:grey;
+}
+.headerbodytext{
+    font-weight: bold;
+    color:blue;
+    font-size: medium;
 }
 
+.maincontainer{
+    width:100%;
+    height:100%;
+    margin-left:10px;
+    /* background-color: blue; */
+}
+.rightsideheaderimg{
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 30ch) 1fr;
+    grid-template-rows: 20% 2fr auto auto 1fr;
+}
+ img.imgrightside{
+    grid-column: 1 / 3;
+    grid-row: 1 / 6;
+    border-radius: 50%;
+ }

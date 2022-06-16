@@ -1,14 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
 
-export default function BasePageLeftSide() {
+export default function BasePageRightSide() {
   return (
     <div className='baseLeftSideContainer'>
       <div className='baseLeftSideArtcard'>
         <div className='baseLeftSideAnalizler'>
             <div className='header'>
-              <div>Analizler</div>
-              <div className='headertext'>Son 30 Gündeki Faaliyetler</div>
+              <div>Takipçilerinizi Arttırın</div>
+              <div className='rightsideheaderimg'>
+                <img src="/images/linkedin.png" className='imgrightside'></img>
+                <img src="/images/linkedin.png" className='imgrightside'></img>
+                </div>
+
             </div>
             <hr/>
             <div className='headerbody'>
@@ -35,4 +38,3 @@ export default function BasePageLeftSide() {
     </div>
   )
 }
-
