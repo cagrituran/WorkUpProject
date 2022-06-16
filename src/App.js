@@ -1,6 +1,3 @@
-
-
-
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -96,11 +93,11 @@ import Profile from "./components/Profile";
 
         <Route path="/home" element={<><Header/><Home changePageProps={(com)=>changeCompanyPage(com)}/></>}>
 
-          </Route>
+        </Route>
         <Route path="/mycompany" element={<><Header/><MyCompany companyProps={company}/></>}></Route>
-           <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
+        <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
           
-          <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
+        <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
       </Routes> 
     </Router>
   </div>

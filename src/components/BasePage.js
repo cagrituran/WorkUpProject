@@ -40,8 +40,6 @@ export default function BasePage(props) {
               {data2.sectorType} - İstanbul,Maslak { follow!==0 ? <a href="#"> {follow} takipçi</a> :null}
             </div>
           </div>
-       
-        
     </UserInfo>
     </ArtCard>
  

@@ -49,7 +49,7 @@ const Leftside = (props) => {
       {
         props.usercompany.length!==0?
         <CommunityCard>
-          
+        <div style={{paddingLeft:6,fontWeight:"bolder",color:"orange"}}>Sayfalarım</div>
         {props.usercompany.map((item) => {
         console.log(item);
         return(

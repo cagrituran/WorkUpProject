@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Navigation from './Navigation';
 import BasePage from './BasePage';
 import BasePageLeftSide from './BasePageLeftSide';
+import BasePageMain from './BasePageMain';
+import BasePageRightSide from './BasePageRightSide';
 
 export default function MyCompany(props) {
   return (
@@ -11,9 +13,13 @@ export default function MyCompany(props) {
       <Navigation mycompanyProps={props.companyProps}/>  
     </Section>
     <Layout>
-      <BasePage mycompanyProps={props.companyProps}/>  
-      <BasePageLeftSide/>   
+      <BasePage mycompanyProps={props.companyProps}/>   
     </Layout>
+    <div className='layout2'>
+      <BasePageLeftSide/>
+      <BasePageMain/>
+      <BasePageRightSide/>  
+    </div>
   </Container>
   )
 }
@@ -45,7 +51,6 @@ const Layout = styled.div`
   grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
   column-gap: 10px;
   row-gap: 25px;
-  
   margin: 30px 0;
 
   @media (max-width: 768px) {
@@ -54,3 +59,4 @@ const Layout = styled.div`
     padding: 0 5px;
   }
 `;
+

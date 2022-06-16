@@ -50,7 +50,7 @@ function PostForm(props) {
        <div className="my-login-page">
        <Nav>
         <a href="/">
-          <img src="/images/login-logo.svg" alt="" />
+          <img src="/images/upimg2.jpg"  style={{width:100,height:100}} alt="" />
         </a>
         
       </Nav>
