@@ -124,13 +124,12 @@ const Main = () => {
   const deletePost = async(id)=>{
     // console.log(id);
     axios.delete(`https://localhost:7079/api/Post/DeleteUserPost/${id}`);
-    // window.location.reload(); // tekrar request atmak yerine sadece state güncellemesi kafi :)
+    // window.location.reload(); // tekrar request atmak nyerine sadece state güncellemesi kafi :)
     console.log(data);
     const newPosts = data.filter(m=>m.id!==id);
     console.log(newPosts);
     
     setData(newPosts);
-    
     
   }
 
