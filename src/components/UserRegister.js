@@ -75,12 +75,14 @@
 
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
 function UserRegister() {
     const navigate = useNavigate();
+    const [emailCheck, setemailCheck] = useState(false)
+   
 
     const url = "https://localhost:7079/api/User/register"
     const [data, setData] = useState({
@@ -92,6 +94,7 @@ function UserRegister() {
     })
     function submit(e) {
         e.preventDefault();
+        if(data.password===data.newpassword){
         Axios.post(url, {
             name: data.name,
             lastname: data.lastname,
@@ -101,19 +104,19 @@ function UserRegister() {
 
         }).then(res => {
             console.log(res.data)
+            
             navigate('/loginuser');
 
         }).catch(function (error) {
             if (error.response) {
+                setemailCheck(true)
+                console.log(data.name.length)
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);
             }
         })
-
-
-
-
+    }
     }
     function handle(e) {
         const newdata = { ...data }
@@ -146,14 +149,14 @@ function UserRegister() {
                                         <form onSubmit={(e) => submit(e)} className="my-login-validation" noValidate="">
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="name">İsim</label>
-                                                <input onChange={(e) => handle(e)} id="name" placeholder="İsim" type="name" className="form-control" name="name" value={data.name} required autoFocus />
+                                                <input onChange={(e) => handle(e)} id="name" placeholder="İsim" type="name" className="form-control" name="name" value={data.name} required autoFocus pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" />
                                                 <div className="invalid-feedback">
                                                     İsim Girmek Zorunludur!
                                                 </div>
                                             </div>
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="lastname">Soyisim</label>
-                                                <input onChange={(e) => handle(e)} id="lastname" placeholder="Soyisim" type="lastname" className="form-control" name="lastname" value={data.lastname} required autoFocus />
+                                                <input onChange={(e) => handle(e)} id="lastname" placeholder="Soyisim" type="lastname" className="form-control" name="lastname" value={data.lastname} required pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" />
                                                 <div className="invalid-feedback">
                                                     Soyisim Girmek Zorunludur!
                                                 </div>
@@ -161,7 +164,7 @@ function UserRegister() {
 
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="email">Email</label>
-                                                <input onChange={(e) => handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required autoFocus />
+                                                <input onChange={(e) => handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required  />
                                                 <div className="invalid-feedback">
                                                     E-posta Zorunludur!!
                                                 </div>
@@ -181,11 +184,12 @@ function UserRegister() {
                                                 
                                                 {/* </label> */}
                                                 <label className="text-left" htmlFor="newpassword">Tekrar Şifre</label>
-                                                <input onChange={(e) => handle(e)} placeholder="Tekrar Şifre" id="newpassword" type="newpassword" className="form-control" name="newpassword" value={data.newpassword} required data-eye />
+                                                <input onChange={(e) => handle(e)} placeholder="Tekrar Şifre" id="newpassword" type="password" className="form-control" name="newpassword" value={data.newpassword} required data-eye />
                                                 <div className="invalid-feedback">
                                                    Tekrar Şifre Zorunludur!!
                                                 </div>
                                             </div>
+                                            {data.password!==data.newpassword && <p>Şifreler birbiriyle uyumlu değil!</p>}
                                             <div className="form-group m-0">
                                                 <button type="submit" className="btn btn-primary btn-block">
                                                     Kayıt Ol
@@ -195,6 +199,12 @@ function UserRegister() {
                                         </form>
                                     </div>
                                 </div>
+                                {
+                                    emailCheck && <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Kayıt İşlemi Başarısız!</strong> Bu email zaten kullanılıyor.
+                                    <button onClick={(evt)=>setemailCheck(false)} type="button" className="btn-close" aria-label="Close"></button>
+                                  </div>
+                                }
                                 <div className="footer">
                                     Copyright &copy; 2022 &mdash; Workup
                                 </div>

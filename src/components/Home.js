@@ -1,9 +1,8 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Leftside from "./Leftside";
 import Main from "./Main";
 import Rightside from "./Rightside";
-import { Navigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
 
 
 const Home = (props) => {
@@ -34,6 +33,7 @@ useEffect(()=>{
   return (
     <Container>
       <Section>
+        
         {/* <h5>
           <a>Hiring in a hurry? - </a>
         </h5>
@@ -43,6 +43,7 @@ useEffect(()=>{
         </p> */}
       </Section>
       <Layout>
+        
  
         <Leftside usercompany={usercompany} comPageChangeProps={props.changePageProps}/>
         <Main />

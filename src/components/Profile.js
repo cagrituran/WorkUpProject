@@ -29,7 +29,7 @@ export default class Profile extends Component {
 
     }
     async componentDidMount() {
-        const response = await axios.get(`https://localhost:7079/api/User/${JSON.parse(localStorage.getItem('User')).id}`);
+        const response = await axios.get(`https://localhost:7079/api/User/${JSON.parse(localStorage.getItem('UserProfile'))}`);
         console.log(response.data.userExperiences)
         this.setState(
             {
@@ -52,6 +52,8 @@ export default class Profile extends Component {
     }
     render() {
         return (
+        <>
+        
             <div style={{ backgroundColor: '#778899' }}>
 
                 <div className="container rounded bg-white mt-5">
@@ -218,6 +220,7 @@ export default class Profile extends Component {
 
                 </div>
             </div>
+            </>
         )
     }
 }

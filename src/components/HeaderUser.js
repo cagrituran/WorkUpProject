@@ -14,8 +14,9 @@ export default function HeaderUser(props) {
         navigate('/loginuser')
     }
     function goProfile(e){
-     e.preventDefault(); 
-     navigate('/profile')
+    //  e.preventDefault(); 
+     localStorage.setItem('UserProfile',JSON.stringify(JSON.parse(localStorage.getItem('User')).id));
+     navigate(`/profile`)
       
         
         

@@ -3,8 +3,10 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
 // import LikeButton from "./LikeButton";
 const Post = (props) => {
+  const navigate = useNavigate();
   const url = "https://localhost:7079/api/Post/UpdateUserPost";
   const commenturl = "https://localhost:7079/api/PostComment/DoComment";
   const [commentp, setCommentp] = useState({
@@ -162,6 +164,14 @@ const Post = (props) => {
     
     
   }
+  const navProfile = (e) => {
+    // e.preventDefault();
+    localStorage.setItem('UserProfile',JSON.stringify(props.publisherId));
+    navigate(`/profile/${props.publisherId}`)
+
+    
+    
+  }
 
   return (
     <div className="card gedf-card">
@@ -182,7 +192,9 @@ const Post = (props) => {
             </div>
           </div>
           <div>
-            <div className="dropdown">
+            {props.publisherId!==JSON.parse(localStorage.getItem("User")).id&&<Button onClick={(e)=>navProfile(e)}>Profile Git</Button>}
+            
+            {/* <div className="dropdown">
               <button
                 className="btn btn-link dropdown-toggle"
                 type="button"
@@ -208,7 +220,7 @@ const Post = (props) => {
                   Report
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -216,7 +228,7 @@ const Post = (props) => {
         <div className="text-muted h7 mb-2">
           {" "}
           <i className="fa fa-clock-o"></i>
-          {props.createdOn}
+          {props.createdOn.slice(8,10)}/{props.createdOn.slice(5,7)}/{props.createdOn.slice(0,4)} {props.createdOn.slice(11,16)}
         </div>
         {/* <a className="card-link" href="#">
             <h5 className="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>
