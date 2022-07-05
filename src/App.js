@@ -7,11 +7,9 @@ import UserRegister from "./components/UserRegister";
 
 import MyCompany from "./components/MyCompany";
 
-import React, { useEffect, useState } from 'react';
-import {useNavigate,Navigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import axios from "axios";
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MyNetwork from "./components/MyNetwork";
-import { Component } from 'react';
 import Profile from "./components/Profile";
 // // import React, { Component } from 'react';
 // export default class App extends Component {
@@ -91,11 +89,12 @@ import Profile from "./components/Profile";
 
         </Route> */}
 
-        <Route path="/home" element={<><Header/><Home changePageProps={(com)=>changeCompanyPage(com)}/></>}>
+        <Route path="/home" element={<><Header></Header><Home changePageProps={(com)=>changeCompanyPage(com)}/></>}>
 
         </Route>
         <Route path="/mycompany" element={<><Header/><MyCompany companyProps={company}/></>}></Route>
-        <Route path="/profile" element={<><Header/><Profile/></>} ></Route>
+        <Route path="/profile" element={<><Header></Header><Profile/></>} ></Route>
+        <Route path="/profile/:id" element={<><Header></Header><Profile/></>} ></Route>
           
         <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
       </Routes> 

@@ -1,10 +1,8 @@
 // import { setUserSession } from './Utils/Common';
 import Axios from "axios";
-import React, { useState } from 'react';
-import { useNavigate,Navigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
-import Header from "./Header";
-import Home from "./Home";
  
 function PostForm(props) {
     const navigate = useNavigate();
@@ -90,7 +88,7 @@ function PostForm(props) {
                                             </button>
                                         </div>
                                         <div className="mt-4 text-center">
-                                            Workup 'ta Yeni misiniz? <a href="register.html">Hemen Katılın!</a>
+                                            Workup 'ta Yeni misiniz? <a href="registeruser">Hemen Katılın!</a>
                                         </div>
                                 </form>
                             </div>
