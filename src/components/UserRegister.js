@@ -149,14 +149,14 @@ function UserRegister() {
                                         <form onSubmit={(e) => submit(e)} className="my-login-validation" noValidate="">
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="name">İsim</label>
-                                                <input onChange={(e) => handle(e)} id="name" placeholder="İsim" type="name" className="form-control" name="name" value={data.name} required autoFocus pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" />
+                                                <input onChange={(e) => handle(e)} id="name" placeholder="İsim" type="name" className="form-control" name="name" value={data.name} required autoFocus pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" title="Boşluk içeremez!"/>
                                                 <div className="invalid-feedback">
                                                     İsim Girmek Zorunludur!
                                                 </div>
                                             </div>
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="lastname">Soyisim</label>
-                                                <input onChange={(e) => handle(e)} id="lastname" placeholder="Soyisim" type="lastname" className="form-control" name="lastname" value={data.lastname} required pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" />
+                                                <input onChange={(e) => handle(e)} id="lastname" placeholder="Soyisim" type="lastname" className="form-control" name="lastname" value={data.lastname} required pattern="[A-Za-z0çÇĞğÜİŞşÖöüı]+" title="Boşluk içeremez!"/>
                                                 <div className="invalid-feedback">
                                                     Soyisim Girmek Zorunludur!
                                                 </div>
@@ -164,7 +164,7 @@ function UserRegister() {
 
                                             <div className="form-group">
                                                 <label className="text-left" htmlFor="email">Email</label>
-                                                <input onChange={(e) => handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required  />
+                                                <input onChange={(e) => handle(e)} id="email" placeholder="E posta Adresi" type="email" className="form-control" name="email" value={data.email} required />
                                                 <div className="invalid-feedback">
                                                     E-posta Zorunludur!!
                                                 </div>
@@ -174,7 +174,7 @@ function UserRegister() {
                                                 
                                                 {/* </label> */}
                                                 <label className="text-left" htmlFor="password">Şifre</label>
-                                                <input onChange={(e) => handle(e)} placeholder="Şifre" id="password" type="password" className="form-control" name="password" value={data.password} required data-eye />
+                                                <input onChange={(e) => handle(e)} placeholder="Şifre" id="password" type="password" className="form-control" name="password" value={data.password} required data-eye pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="En az bir büyük harf,bir küçük harf ve bir rakam içermelidir."/>
                                                 <div className="invalid-feedback">
                                                     Şifre Zorunludur!!
                                                 </div>
@@ -184,12 +184,12 @@ function UserRegister() {
                                                 
                                                 {/* </label> */}
                                                 <label className="text-left" htmlFor="newpassword">Tekrar Şifre</label>
-                                                <input onChange={(e) => handle(e)} placeholder="Tekrar Şifre" id="newpassword" type="password" className="form-control" name="newpassword" value={data.newpassword} required data-eye />
+                                                <input onChange={(e) => handle(e)} placeholder="Tekrar Şifre" id="newpassword" type="password" className="form-control" name="newpassword" value={data.newpassword} required data-eye pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="En az bir büyük harf,bir küçük harf ve bir rakam içermelidir."/>
                                                 <div className="invalid-feedback">
                                                    Tekrar Şifre Zorunludur!!
                                                 </div>
                                             </div>
-                                            {data.password!==data.newpassword && <p>Şifreler birbiriyle uyumlu değil!</p>}
+                                            {data.password!==data.newpassword && <p className="text-danger">Şifreler birbiriyle uyumlu değil!</p>}
                                             <div className="form-group m-0">
                                                 <button type="submit" className="btn btn-primary btn-block">
                                                     Kayıt Ol
