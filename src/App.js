@@ -9,6 +9,7 @@ import MyCompany from "./components/MyCompany";
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Form from "./components/Form";
 import MyNetwork from "./components/MyNetwork";
 import Profile from "./components/Profile";
 // // import React, { Component } from 'react';
@@ -97,6 +98,8 @@ import Profile from "./components/Profile";
         <Route path="/profile/:id" element={<><Header></Header><Profile/></>} ></Route>
           
         <Route path="/mynetwork" element={<><Header/><MyNetwork/></>} ></Route>
+        <Route path="/deneme" element={<Form></Form>}></Route>
+        
       </Routes> 
     </Router>
   </div>
