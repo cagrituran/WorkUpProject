@@ -127,8 +127,11 @@ function UserRegister() {
 
     }
     return (
+        
         <Container>
+     
             <div className="my-login-page">
+                
                 <Nav>
                     <a href="/">
                         <img src="/images/upimg2.jpg"  style={{width:100,height:100}} alt="" />
@@ -144,6 +147,7 @@ function UserRegister() {
                         </div> */}
                                 <div className="card fat">
                                     <div className="card-body">
+                                        
                                         <h4 className="card-title">Kayıt Ol</h4>
                                         <p className="card-title">Workup Dünyasına Hoşgeldin</p>
                                         <form onSubmit={(e) => submit(e)} className="my-login-validation" noValidate="">
