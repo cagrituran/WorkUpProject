@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import styled from "styled-components";
 
-// tryin
+// tryin step 2
 function UserRegister2() {
     const [value, setValue] = useState('')
 
