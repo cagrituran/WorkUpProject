@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import styled from "styled-components";
 
-
+// tryin
 function UserRegister2() {
     const [value, setValue] = useState('')
 
@@ -170,6 +170,7 @@ function UserRegister2() {
                                                     <option>Ana Dil</option>
                                                     <option>Konuşma Dili</option>
                                                 </select>
+                                                
 
                                             </div>
                                             <div className="form-group col-3">
