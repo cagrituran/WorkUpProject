@@ -13,23 +13,9 @@ function UserRegister2() {
     return (
 
         <Container>
-
-
-
-
-
-
-
-
             <section style={{ marginTop: '75px' }}>
-
-
                 <div className="container">
-
-
-
                     <div className="row g-3 justify-content-md-center">
-
                         <div className="card-wrapper">
                             <div class="progress mb-3 ">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{ width: '50%' }}></div>
@@ -39,69 +25,185 @@ function UserRegister2() {
                         </div> */}
                             <div className="card fat">
                                 <div className="card-body">
-
-
                                     <h4 className="card-title">Kişisel Bilgiler</h4>
                                     <p className="card-title">Eksik Bilgileri Doldur</p>
-                                    <form className="row my-login-validation justify-content-between" noValidate="">
+
+                                    <form className="my-login-validation " noValidate="">
+                                        <div className='row justify-content-around'>
+                                            <div className="form-group col-6 mb-4">
+                                                <input id="name" placeholder="Telefon... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                            </div>
+                                            <div className="form-group col-3">
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Şehir...</option>
+                                                    <option>İstanbul</option>
+                                                </select>
+
+                                            </div>
+                                            <div className="form-group col-3">
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Ülke...</option>
+                                                    <option>Türkiye</option>
+                                                </select>
+
+                                            </div>
+
+                                            <div className="form-group col-6">
+                                                <textarea id="name" placeholder="Açıklama..." type="text-area" className="form-control mb-4" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                            </div>
+
+                                            <div className="form-group col-3">
+
+                                                <input id="name" placeholder="Web Sitesi..." type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+
+                                            </div>
+
+                                            <div className="form-group col-3">
+
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Doğum Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
 
 
-                                        <div className="form-group col-6">
-                                            
-
-                                            <input id="name" placeholder="Telefon... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                            </div>
 
                                         </div>
-                                        <div className="form-group col-3">
+                                        <hr className=''></hr>
+                                        <div className='row justify-content-left'>
+
+
+
+                                            <div className="form-group col-3 border-right border-secondary">
+                                                <h5 className="card-title mb-3">Eğitim</h5>
+
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Okul Seçiniz...</option>
+                                                    <option>İstanbul Gelişim Üniversitesi</option>
+                                                </select>
+                                                <br></br>
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Bölüm Seçiniz...</option>
+                                                    <option>Elektrik-Elektronik Mühendisliği</option>
+                                                </select>
+                                                <br></br>
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Başlama Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
+                                                <br></br>
+                                                <br></br>
                                             
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Bitiş Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
 
-                                            <select class="form-select" id="validationCustom04" required>
-                                                <option selected disabled value="">Şehir...</option>
-                                                <option>İstanbul</option>
-                                            </select>
+                                            </div>
+                                            <div className="form-group col-3 border-right border-secondary">
+                                                <h5 className="card-title mb-3">Tecrübe</h5>
 
-                                        </div>
-                                        <div className="form-group col-3">
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Firma Seçiniz...</option>
+                                                    <option>Turkcell</option>
+                                                </select>
+                                                <br></br>
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Pozisyon Seçiniz...</option>
+                                                    <option>.NET Developer</option>
+                                                </select>
+                                                <br></br>
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Başlama Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
+                                                <br></br>
+                                                <br></br>
                                             
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Bitiş Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
+                                                
 
-                                            <select class="form-select" id="validationCustom04" required>
-                                                <option selected disabled value="">Ülke...</option>
-                                                <option>Türkiye</option>
-                                            </select>
+                                            </div>
+                                            <div className="form-group col-3 border-right border-secondary">
+                                                <h5 className="card-title mb-3">Yabancı Dil</h5>
 
-                                        </div>
-                                        
-                                        <div className="form-group col-6">
-                                        <textarea id="name" placeholder="Açıklama..." type="text-area" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Yabancı Dil Seçiniz...</option>
+                                                    <option>İngilizce</option>
+                                                </select>
+                                                <br></br>
+                                                <select class="form-select" id="validationCustom04" required>
+                                                    <option selected disabled value="">Yetkinlik...</option>
+                                                    <option>Ana Dil</option>
+                                                    <option>Konuşma Dili</option>
+                                                </select>
+
+                                            </div>
+                                            <div className="form-group col-3">
+                                                <h5 className="card-title mb-3">Sertifika</h5>
+
+                                                <input id="name" placeholder="Sertifika İsmi... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <br></br>
+                                                <input id="name" placeholder="Kurum İsmi... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <br></br>
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Geçerlilik Başlama Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
+                                                <br></br>
+                                                <br></br>
                                             
+                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                    <DatePicker
+                                                        label="Geçerlilik Bitiş Tarihi"
+                                                        value={value}
+                                                        onChange={(newValue) => {
+                                                            setValue(newValue);
+                                                        }}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
 
-                                            
-
-                                        </div>
-                                        <div className="form-group col-3">
-                                           
-
-                                        <input id="name" placeholder="Web Sitesi..." type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
-
-                                        </div>
-                                        
-                                        <div className="form-group col-3">
-                                            
-
-
-                                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                                <DatePicker
-                                                    label="Doğum Tarihi"
-                                                    value={value}
-                                                    onChange={(newValue) => {
-                                                      setValue(newValue);
-                                                    }}
-
-
-                                                    renderInput={(params) => <TextField {...params} />}
-                                                />
-                                            </LocalizationProvider>
-
+                                            </div>
                                         </div>
 
                                         <div className="form-group m-0">
@@ -113,11 +215,12 @@ function UserRegister2() {
                                     </form>
                                 </div>
                             </div>
-
-                            <div className="footer">
-                                Copyright &copy; 2022 &mdash; Workup
-                            </div>
                         </div>
+
+                        <div className="footer">
+                            Copyright &copy; 2022 &mdash; Workup
+                        </div>
+
                     </div>
                 </div>
             </section>
