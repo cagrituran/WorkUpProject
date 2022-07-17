@@ -8,7 +8,33 @@ import styled from "styled-components";
 
 // tryin step 2
 function UserRegister2() {
-    const [value, setValue] = useState('')
+    const [userdata, setUserdata] = useState({
+        phone:'',
+        city:'',
+        country:'',
+        explanation:'',
+        website:'',
+        birthdate:'',
+    })
+    function submit(e){
+        e.preventDefault()
+        console.log(userdata.phone)
+        console.log(userdata.city)
+        console.log(userdata.country)
+        console.log(userdata.explanation)
+        console.log(userdata.website)
+        console.log(userdata.birthdate)
+
+        
+    }
+    function handle(e) {
+        const newdata = { ...userdata }
+        newdata[e.target.id] = e.target.value
+        setUserdata(newdata)
+        console.log(newdata)
+
+
+    }
 
     return (
 
@@ -28,20 +54,20 @@ function UserRegister2() {
                                     <h4 className="card-title">Kişisel Bilgiler</h4>
                                     <p className="card-title">Eksik Bilgileri Doldur</p>
 
-                                    <form className="my-login-validation " noValidate="">
+                                    <form onSubmit={(e) => submit(e)} className="my-login-validation " noValidate="">
                                         <div className='row justify-content-around'>
                                             <div className="form-group col-6 mb-4">
-                                                <input id="name" placeholder="Telefon... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="phone" placeholder="Telefon... " type="text" onChange={(e)=>handle(e)} value={userdata.phone} className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                             </div>
                                             <div className="form-group col-3">
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select onChange={(e)=> handle(e)} class="form-select" value={userdata.city} id="city" required>
                                                     <option selected disabled value="">Şehir...</option>
                                                     <option>İstanbul</option>
                                                 </select>
 
                                             </div>
                                             <div className="form-group col-3">
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select onChange={(e)=> setUserdata(e.target.value)} class="form-select" id="validationCustom04" required>
                                                     <option selected disabled value="">Ülke...</option>
                                                     <option>Türkiye</option>
                                                 </select>
@@ -49,12 +75,12 @@ function UserRegister2() {
                                             </div>
 
                                             <div className="form-group col-6">
-                                                <textarea id="name" placeholder="Açıklama..." type="text-area" className="form-control mb-4" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <textarea id="name" placeholder="Açıklama..." type="text-area" onChange={(e)=> setUserdata(e.target.value)}className="form-control mb-4" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                             </div>
 
                                             <div className="form-group col-3">
 
-                                                <input id="name" placeholder="Web Sitesi..." type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="name" placeholder="Web Sitesi..." type="text" className="form-control" name="name" onChange={(e)=> setUserdata(e.target.value)} required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
 
                                             </div>
 
@@ -63,9 +89,9 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Doğum Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
@@ -96,10 +122,11 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Başlama Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
+                                                       
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
                                                 </LocalizationProvider>
@@ -109,9 +136,9 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Bitiş Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
@@ -134,10 +161,11 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Başlama Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
+                                                       
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
                                                 </LocalizationProvider>
@@ -147,10 +175,11 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Bitiş Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
+                                                       
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
                                                 </LocalizationProvider>
@@ -183,10 +212,11 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Geçerlilik Başlama Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
+                                                        
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
                                                 </LocalizationProvider>
@@ -196,9 +226,9 @@ function UserRegister2() {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Geçerlilik Bitiş Tarihi"
-                                                        value={value}
+                                                        value={userdata.birthdate}
                                                         onChange={(newValue) => {
-                                                            setValue(newValue);
+                                                            setUserdata(newValue);
                                                         }}
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
