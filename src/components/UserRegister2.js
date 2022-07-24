@@ -1,31 +1,61 @@
-import TextField from '@mui/material/TextField';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import TextField from '@mui/material/TextField';
+// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
 
 // tryin step 2
 function UserRegister2() {
+ 
+    const [deneme, setdeneme] = useState('')
     const [userdata, setUserdata] = useState({
-        phone:'',
-        city:'',
-        country:'',
-        explanation:'',
-        website:'',
-        birthdate:'',
+        phone: '',
+        city: '',
+        country: '',
+        explanation: '',
+        website: '',
+
     })
-    function submit(e){
+    const [education, setEducation] = useState({
+        school: '',
+        departmant: '',
+        efirstdate: '',
+        eenddate: '',
+
+    })
+    const [experience, setExperience] = useState({
+        company: '',
+        position: '',
+        exfirstdate: '',
+        exenddate: '',
+    })
+    const [foreignLang, setforeignLang] = useState({
+        language: '',
+        profiency: '',
+    })
+    const [cert, setCert] = useState({
+        certname: '',
+        certplace: '',
+        valstartdate: '',
+        valenddate: ''
+    })
+    function submit(e) {
+       
         e.preventDefault()
         console.log(userdata.phone)
         console.log(userdata.city)
         console.log(userdata.country)
         console.log(userdata.explanation)
         console.log(userdata.website)
-        console.log(userdata.birthdate)
-
         
+        
+        console.log(deneme)
+
+
     }
     function handle(e) {
         const newdata = { ...userdata }
@@ -57,17 +87,17 @@ function UserRegister2() {
                                     <form onSubmit={(e) => submit(e)} className="my-login-validation " noValidate="">
                                         <div className='row justify-content-around'>
                                             <div className="form-group col-6 mb-4">
-                                                <input id="phone" placeholder="Telefon... " type="text" onChange={(e)=>handle(e)} value={userdata.phone} className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="phone" placeholder="Telefon... " type="text" onChange={(e) => handle(e)} value={userdata.phone} className="form-control" name="name"   autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                             </div>
                                             <div className="form-group col-3">
-                                                <select onChange={(e)=> handle(e)} class="form-select" value={userdata.city} id="city" required>
+                                                <select onChange={(e) => handle(e)} class="form-select" value={userdata.city} id="city"  >
                                                     <option selected disabled value="">Şehir...</option>
                                                     <option>İstanbul</option>
                                                 </select>
 
                                             </div>
                                             <div className="form-group col-3">
-                                                <select onChange={(e)=> setUserdata(e.target.value)} class="form-select" id="validationCustom04" required>
+                                                <select onChange={(e) => handle(e)} class="form-select" id="country"  >
                                                     <option selected disabled value="">Ülke...</option>
                                                     <option>Türkiye</option>
                                                 </select>
@@ -75,28 +105,34 @@ function UserRegister2() {
                                             </div>
 
                                             <div className="form-group col-6">
-                                                <textarea id="name" placeholder="Açıklama..." type="text-area" onChange={(e)=> setUserdata(e.target.value)}className="form-control mb-4" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <textarea id="explanation" placeholder="Açıklama..." type="text-area" onChange={(e) => handle(e)} className="form-control mb-4" name="name"   autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                             </div>
 
                                             <div className="form-group col-3">
 
-                                                <input id="name" placeholder="Web Sitesi..." type="text" className="form-control" name="name" onChange={(e)=> setUserdata(e.target.value)} required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="website" placeholder="Web Sitesi..." type="text" className="form-control" name="name" onChange={(e) => handle(e)}   autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
 
                                             </div>
 
                                             <div className="form-group col-3">
-
+                                                {/* 
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Doğum Tarihi"
-                                                        value={userdata.birthdate}
+                                                        value={deneme}
                                                         onChange={(newValue) => {
-                                                            setUserdata(newValue);
+                                                            setdeneme(newValue);
                                                         }}
+                                                        dateFormat="MM/yyyy"
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
-
+                                                </LocalizationProvider> */}
+                                                <DatePicker
+                                                    selected={deneme}
+                                                    onSelect={date => setdeneme(date)
+                                                    }
+                                                   
+                                                />
 
                                             </div>
 
@@ -109,17 +145,17 @@ function UserRegister2() {
                                             <div className="form-group col-3 border-right border-secondary">
                                                 <h5 className="card-title mb-3">Eğitim</h5>
 
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Okul Seçiniz...</option>
                                                     <option>İstanbul Gelişim Üniversitesi</option>
                                                 </select>
                                                 <br></br>
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Bölüm Seçiniz...</option>
                                                     <option>Elektrik-Elektronik Mühendisliği</option>
                                                 </select>
                                                 <br></br>
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Başlama Tarihi"
                                                         value={userdata.birthdate}
@@ -129,11 +165,11 @@ function UserRegister2() {
                                                        
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
+                                                </LocalizationProvider> */}
                                                 <br></br>
                                                 <br></br>
-                                            
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Bitiş Tarihi"
                                                         value={userdata.birthdate}
@@ -142,23 +178,23 @@ function UserRegister2() {
                                                         }}
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
+                                                </LocalizationProvider> */}
 
                                             </div>
                                             <div className="form-group col-3 border-right border-secondary">
                                                 <h5 className="card-title mb-3">Tecrübe</h5>
 
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Firma Seçiniz...</option>
                                                     <option>Turkcell</option>
                                                 </select>
                                                 <br></br>
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Pozisyon Seçiniz...</option>
                                                     <option>.NET Developer</option>
                                                 </select>
                                                 <br></br>
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Başlama Tarihi"
                                                         value={userdata.birthdate}
@@ -168,11 +204,11 @@ function UserRegister2() {
                                                        
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
+                                                </LocalizationProvider> */}
                                                 <br></br>
                                                 <br></br>
-                                            
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Bitiş Tarihi"
                                                         value={userdata.birthdate}
@@ -182,34 +218,34 @@ function UserRegister2() {
                                                        
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
-                                                
+                                                </LocalizationProvider> */}
+
 
                                             </div>
                                             <div className="form-group col-3 border-right border-secondary">
                                                 <h5 className="card-title mb-3">Yabancı Dil</h5>
 
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Yabancı Dil Seçiniz...</option>
                                                     <option>İngilizce</option>
                                                 </select>
                                                 <br></br>
-                                                <select class="form-select" id="validationCustom04" required>
+                                                <select class="form-select" id="validationCustom04"  >
                                                     <option selected disabled value="">Yetkinlik...</option>
                                                     <option>Ana Dil</option>
                                                     <option>Konuşma Dili</option>
                                                 </select>
-                                                
+
 
                                             </div>
                                             <div className="form-group col-3">
                                                 <h5 className="card-title mb-3">Sertifika</h5>
 
-                                                <input id="name" placeholder="Sertifika İsmi... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="name" placeholder="Sertifika İsmi... " type="text" className="form-control" name="name"   autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                                 <br></br>
-                                                <input id="name" placeholder="Kurum İsmi... " type="text" className="form-control" name="name" required autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
+                                                <input id="name" placeholder="Kurum İsmi... " type="text" className="form-control" name="name"   autoFocus pattern="[0-9]{11}" title="Telefon Numarası 11 haneli olmalıdır,Boşluk içeremez!" />
                                                 <br></br>
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Geçerlilik Başlama Tarihi"
                                                         value={userdata.birthdate}
@@ -219,11 +255,11 @@ function UserRegister2() {
                                                         
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
+                                                </LocalizationProvider> */}
                                                 <br></br>
                                                 <br></br>
-                                            
-                                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+                                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                                     <DatePicker
                                                         label="Geçerlilik Bitiş Tarihi"
                                                         value={userdata.birthdate}
@@ -232,7 +268,7 @@ function UserRegister2() {
                                                         }}
                                                         renderInput={(params) => <TextField {...params} />}
                                                     />
-                                                </LocalizationProvider>
+                                                </LocalizationProvider> */}
 
                                             </div>
                                         </div>
